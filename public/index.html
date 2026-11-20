@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#12375b"><title>Irmandade Transportadora</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#"><span class="truck">🚛</span><span>IRMANDADE<small>TRANSPORTADORA</small></span></a>
+  <button class="menuBtn" onclick="document.querySelector('nav').classList.toggle('show')">☰</button>
+  <nav>
+    <a href="#inicio">Início</a><a href="#rastreamento">Rastreamento</a><a href="#ouvidoria">Suporte</a>
+    <a href="#contratante">Contratantes</a><button class="navLogin" onclick="openLogin()">Área interna</button>
+  </nav>
+</header>
+<main>
+<section id="inicio" class="hero">
+  <div class="heroText"><span class="eyebrow">COMPROMISSO • RESPONSABILIDADE • CONFIANÇA</span>
+    <h1>Transportando com <em>confiança.</em></h1>
+    <p>Sua carga, nossa responsabilidade. Acompanhe suas entregas e tenha mais controle sobre suas operações.</p>
+    <div class="actions"><a class="btn primary" href="#contratante">Área do contratante</a><a class="btn ghost" href="#rastreamento">Rastrear pedido</a></div>
+  </div>
+  <div class="carousel" id="carousel"><div class="slidePlaceholder"><span>🚛</span><b>IRMANDADE TRANSPORTADORA</b><small>Logística com compromisso</small></div><div class="dots"></div></div>
+</section>
+<section class="quick">
+  <a href="#rastreamento"><b>⌖</b><strong>Rastreamento</strong><small>Acompanhe sua carga</small></a>
+  <a href="#contratante"><b>▣</b><strong>Contratantes</strong><small>Acesse sua empresa</small></a>
+  <a href="#ouvidoria"><b>♧</b><strong>Ouvidoria</strong><small>Fale com nossa equipe</small></a>
+</section>
+<section id="rastreamento" class="section">
+  <div class="sectionHead"><span class="eyebrow">ACOMPANHAMENTO</span><h2>Rastreamento de carga</h2><p>Consulte as atualizações da sua entrega com o número do pedido. Para ver todos os detalhes, entre na sua conta de contratante.</p></div>
+  <div class="trackSearch"><input id="trackId" placeholder="Número do pedido (ex.: 127)"><button class="btn primary" onclick="trackPublic()">Consultar</button></div><div id="publicTrack" class="result"></div>
+</section>
+<section id="contratante" class="section blueSection">
+  <div><span class="eyebrow">PORTAL EXCLUSIVO</span><h2>Área do contratante</h2><p>Solicite reposições, agende abastecimentos e acompanhe cada etapa da sua entrega em um só lugar.</p><button class="btn white" onclick="openLogin('contractor')">Entrar ou criar conta</button></div>
+  <div class="featureList"><div>✓ Solicitação de reposição</div><div>✓ Agendamento de data e horário</div><div>✓ Histórico e rastreamento de pedidos</div></div>
+</section>
+<section id="ouvidoria" class="section">
+  <div class="sectionHead"><span class="eyebrow">ATENDIMENTO</span><h2>Ouvidoria</h2><p>Conte para nós sobre uma ocorrência ou preocupação relacionada à operação. Seu relato será encaminhado à direção.</p></div>
+  <form id="complaintForm" class="formCard">
+    <div class="formGrid"><label>Seu nome<input name="sender" required></label><label>Empresa (opcional)<input name="company"></label><label>Caminhoneiro envolvido (opcional)<input name="driver"></label><label>Data da ocorrência<input name="occurrenceDate" type="date"></label></div>
+    <label>Descreva o ocorrido<textarea name="description" required rows="4"></textarea></label>
+    <button class="btn primary">Enviar relato</button><p class="formMsg" id="complaintMsg"></p>
+  </form>
+</section>
+<section id="authArea" class="section hidden">
+  <div class="sectionHead"><span class="eyebrow">ACESSO RESTRITO</span><h2 id="authTitle">Acesse sua conta</h2></div>
+  <div class="authCard" id="authCard"></div>
+</section>
+<section id="dashboard" class="section hidden">
+  <div class="dashHead"><div><span class="eyebrow">PORTAL IRMANDADE</span><h2 id="dashTitle">Painel</h2><p id="dashWelcome"></p></div><button class="btn outline" onclick="logout()">Sair</button></div>
+  <div id="dashTabs" class="tabs"></div><div id="dashContent"></div>
+</section>
+</main>
+<footer><b>🚛 IRMANDADE TRANSPORTADORA</b><span>Compromisso, responsabilidade e confiança.</span><small>© <span id="year"></span> Irmandade Transportadora</small></footer>
+<div id="toast" class="toast"></div>
+<script src="/app.js"></script>
+</body></html>
